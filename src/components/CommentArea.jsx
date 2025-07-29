@@ -45,12 +45,13 @@ const CommentArea = (props) => {
   //   }
   // }
 
-  const getComments = (prevProps) => {
-    if (!prevProps) return;
+  const getComments = (asin) => {
+    // Questo if serve per saltare il pirmo giro
+    if (!asin) return;
     setIsLoading(true);
     setIsError(false);
 
-    fetch(URL + prevProps, {
+    fetch(URL + asin, {
       headers: {
         Authorization: AUT,
       },
